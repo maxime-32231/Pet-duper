@@ -13,18 +13,6 @@ local Window = Rayfield:CreateWindow({
         Enabled = true,
         Invite = "EsGw9GUsvq",
         RememberJoins = true
-    },
-    KeySystem = true,
-    KeySettings = {
-        Title = "KeySystem",
-        Subtitle = "join discord",
-        Note = "join the discord for key : https://discord.gg/EsGw9GUsvq",
-        FileName = "Key",
-        SaveKey = true,
-        GrabKeyFromSite = false,
-        Key = {"maxi hub"}
-    }
-})
 
 local PetTab = Window:CreateTab("Pet", 4483362458)
 
