@@ -3,7 +3,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
     Name = "Maxi hub",
-    LoadingTitle = "Pet duper",
+    LoadingTitle = "Gag spawner",
     LoadingSubtitle = "by Maxime",
     ConfigurationSaving = {
         Enabled = true,
@@ -11,8 +11,8 @@ local Window = Rayfield:CreateWindow({
         FileName = "Big Hub"
     },
     Discord = {
-        Enabled = treu,
-        Invite = "https://discord.gg/ysTCPNQPyR",
+        Enabled = false,
+        Invite = "noinvitelink",
         RememberJoins = true
     },
     KeySystem = false,
@@ -27,10 +27,10 @@ local Window = Rayfield:CreateWindow({
     }
 })
 
-local DupeTab = Window:CreateTab("Dupe", 4483362458)
+local PetTab = Window:CreateTab("Pet", 4483362458)
 
-local Dupeequippedpet = DupeTab:CreateButton({
-    Name = "Dupe equipped pet",
+local Dupeholdingpet = PetTab:CreateButton({
+    Name = "Dupe holding pet",
     Callback = function()
         -- ▼ USER INSERT SCRIPT HERE ▼
 local player = game.Players.LocalPlayer
@@ -46,6 +46,57 @@ if heldTool then
 else
     warn("No tool equipped to duplicate.")
 end
+    end,
+})
+
+local SeedTab = Window:CreateTab("Seed", 4483362458)
+
+local Dupeholdingseed = SeedTab:CreateButton({
+    Name = "Dupe holding seed",
+    Callback = function()
+        -- ▼ USER INSERT SCRIPT HERE ▼
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local backpack = player:WaitForChild("Backpack")
+
+-- Check if the player is holding a tool
+local heldTool = character:FindFirstChildOfClass("Tool")
+
+if heldTool then
+    local clonedTool = heldTool:Clone()
+    clonedTool.Parent = backpack
+else
+    warn("No tool equipped to duplicate.")
+end
+    end,
+})
+
+local InventoryTab = Window:CreateTab("Inventory ", 4483362458)
+
+local Dupeinventory = InventoryTab:CreateButton({
+    Name = "Dupe inventory",
+    Callback = function()
+        -- ▼ USER INSERT SCRIPT HERE ▼
+local player = game.Players.LocalPlayer
+local backpack = player:WaitForChild("Backpack")
+
+-- Loop through all tools in the backpack
+for _, tool in pairs(backpack:GetChildren()) do
+    if tool:IsA("Tool") then
+        local clone = tool:Clone()
+        clone.Parent = backpack
+    end
+end
+    end,
+})
+
+local MorescriptsTab = Window:CreateTab("More scripts", 4483362458)
+
+local Discord = MorescriptsTab:CreateButton({
+    Name = "Discord",
+    Callback = function()
+        -- ▼ USER INSERT SCRIPT HERE ▼
+setclipboard("https://discord.gg/EsGw9GUsvq")
     end,
 })
 
